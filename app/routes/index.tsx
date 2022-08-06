@@ -12,7 +12,7 @@ export function links() {
 }
 
 export default function Index() {
-  const [link, setLink] = useState("https://github.com");
+  const [link, setLink] = useState("");
   const [output, setOutput] = useState<Result | undefined>(undefined);
   const [resultState, setResultState] = useState<"idle" | "loading" | "data" | "error">("idle");
 
@@ -82,7 +82,7 @@ export default function Index() {
   return (
     <main className="primary-container">
       <div className="primary-row">
-        <input className="primary-input" value={link} onKeyDown={e => {
+        <input name="url" className="primary-input" value={link} onKeyDown={e => {
           if (e.code === "Enter") {
             e.preventDefault();
             onFetch();
